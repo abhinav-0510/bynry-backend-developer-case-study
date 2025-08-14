@@ -1,0 +1,60 @@
+{
+  "info": {
+    "name": "StockFlow API",
+    "_postman_id": "12345678-1234-1234-1234-1234567890ab",
+    "description": "Test collection for StockFlow API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Company",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Test Company\"\n}"
+        },
+        "url": { "raw": "http://localhost:5000/api/companies", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "companies"] }
+      }
+    },
+    {
+      "name": "Create Warehouse",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"company_id\": 1,\n  \"name\": \"Main Warehouse\",\n  \"address\": \"123 Main St\"\n}"
+        },
+        "url": { "raw": "http://localhost:5000/api/warehouses", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "warehouses"] }
+      }
+    },
+    {
+      "name": "Create Product",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"company_id\": 1,\n  \"name\": \"Widget\",\n  \"sku\": \"WGT-001\",\n  \"price\": 10.5,\n  \"warehouse_id\": 1,\n  \"initial_quantity\": 5,\n  \"low_stock_threshold\": 10\n}"
+        },
+        "url": { "raw": "http://localhost:5000/api/products", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "products"] }
+      }
+    },
+    {
+      "name": "Low Stock Alerts",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": { "raw": "http://localhost:5000/api/low_stock_alerts/1", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "low_stock_alerts", "1"] }
+      }
+    }
+  ]
+} 

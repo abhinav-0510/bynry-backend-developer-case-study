@@ -1,0 +1,4 @@
+# Requirements for StockFlow backend
+# Install these dependencies with: pip install -r requirements.txt
+Flask
+Flask-SQLAlchemy 
